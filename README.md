@@ -22,6 +22,7 @@ chmod +x install.sh
 ```
 
 The installer:
+
 - Auto-detects your running GNOME session user
 - Auto-detects whether you use `ubuntu-dock` or `dash-to-dock`
 - Installs a hook at `/usr/lib/systemd/system-sleep/fix-gnome-resume.sh`
@@ -55,13 +56,17 @@ gnome-extensions list --enabled
 ## Troubleshooting
 
 **Dock still broken after resume** — increase the sleep delay in the hook from `3` to `5`:
+
 ```bash
 sudo nano /usr/lib/systemd/system-sleep/fix-gnome-resume.sh
 ```
 
 **Check if the hook ran:**
+
 ```bash
 sudo journalctl -b -g "fix-gnome-resume"
 ```
 
 **Extension ID not found** — run `gnome-extensions list --enabled` and set `DOCK_EXT` manually in the hook.
+
+### Made By Aadi
